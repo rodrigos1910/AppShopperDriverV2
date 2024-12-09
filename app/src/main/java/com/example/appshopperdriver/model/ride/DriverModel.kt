@@ -9,6 +9,7 @@ data class DriverModel (
     val value: Double,
     val selecionado: Boolean = false,
     val distance: Double,
-    val duration: String
+    val duration: String,
+    val date: String
 
 )

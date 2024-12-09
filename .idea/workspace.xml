@@ -40,6 +40,11 @@
           <theme>@style/Theme.AppShopperDriver</theme>
         </config>
       </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_orders_list.xml">
+        <config>
+          <theme>@style/Theme.AppShopperDriver</theme>
+        </config>
+      </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_ride.xml">
         <config>
           <theme>@style/Theme.AppShopperDriver</theme>
@@ -56,6 +61,11 @@
         </config>
       </layout>
       <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_drivers.xml">
+        <config>
+          <theme>@style/Theme.AppShopperDriver</theme>
+        </config>
+      </layout>
+      <layout url="file://$PROJECT_DIR$/app/src/main/res/layout/row_rides.xml">
         <config>
           <theme>@style/Theme.AppShopperDriver</theme>
         </config>
@@ -91,7 +101,33 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2cdaa142-be3c-445b-860c-ed5e9b861649" name="Changes" comment="implementacao do fluxo de informar o destino, obter motoristas e confirmar envio" />
+    <list default="true" id="2cdaa142-be3c-445b-860c-ed5e9b861649" name="Changes" comment="implementacao do fluxo de informar o destino, obter motoristas e confirmar envio">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersListAdapter.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersListFragment.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersListViewHolder.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/util/DateUtil.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/row_rides.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.9/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/navEditor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/navEditor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/model/ride/DriverModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/model/ride/DriverModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/RideApi.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/RideApi.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/response/RideHistoryResponse.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/response/RideHistoryResponse.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/response/RideOption.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/network/response/RideOption.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/service/repository/RideRepository.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/service/repository/RideRepository.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/ui/orders/OrdersViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/util/DoubleUtil.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/appshopperdriver/util/DoubleUtil.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/fragment_ride_options_v2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/fragment_orders_list.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/orders.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/orders.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/navigation/ride.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/navigation/ride.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/strings.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -118,12 +154,12 @@
         <option value="valueResourceFile" />
         <option value="navigationResourceFile" />
         <option value="resourceFile" />
-        <option value="layoutResourceFile" />
         <option value="Kotlin File" />
         <option value="Class" />
-        <option value="Kotlin Class" />
         <option value="Kotlin Data Class" />
         <option value="Kotlin Interface" />
+        <option value="layoutResourceFile" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -146,7 +182,9 @@
   &quot;associatedIndex&quot;: 7
 }</component>
   <component name="ProjectId" id="2ppErXAkjM8yTaqscIFuqExldt2" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -293,7 +331,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733732819869</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="implementacao do fluxo de informar o destino, obter motoristas e confirmar envio">
+      <option name="closed" value="true" />
+      <created>1733733117888</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1733733117888</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

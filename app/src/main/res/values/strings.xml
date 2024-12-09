@@ -1,8 +1,10 @@
 <resources>
     <string name="app_name">AppShopperDriver</string>
+
+
     <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
+    <string name="fragment_ride">Solicitação de Corrida</string>
+    <string name="fragment_orders">Histórico de Viagem</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
 
@@ -34,7 +36,6 @@
     <string name="orders_buttonFilter">Filtrar</string>
 
 
-
     <!-- API -->
     <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu. Tente novamente mais tarde.</string>
     <string name="ERROR_LOAD">Erro ao carregar requisição.</string>
@@ -51,6 +52,7 @@
     <string name="ERROR_RIDE_HISTORY">Erro ao carregar o histórico de corridas. Tente novamente.</string>
     <string name="SUCCESS_RIDE_HISTORY">Histórico de corridas carregado com sucesso!</string>
     <string name="ERROR_NO_HISTORY">Nenhuma corrida encontrada no histórico.</string>
+    <string name="ERROR_NO_RIDES_FOUND">Nenhuma corrida encontrada no histórico.</string>
 
     <!-- DIALOG -->
     <string name="dialog_text_sucess">Operação realizada com sucesso!</string>

@@ -25,7 +25,8 @@ fun RideOption.toDriverModel(duration: String, distance: Double): DriverModel {
         ),
         value = this.value,
         duration = duration,
-        distance = distance
+        distance = distance,
+        date = ""
     )
 }
 

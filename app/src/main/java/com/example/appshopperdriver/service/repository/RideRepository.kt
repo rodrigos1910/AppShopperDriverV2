@@ -14,6 +14,7 @@ import com.example.appshopperdriver.network.response.toDriverDTOList
 import com.example.appshopperdriver.service.repository.local.ShopperDriverDataBase
 import com.example.appshopperdriver.service.repository.remote.RetrofitClient
 import com.example.appshopperdriver.util.ApiListener
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,23 +38,15 @@ class RideRepository(context: Context)  : BaseRepository(context) {
             override fun onResponse(call: Call<EstimateResponse>, response: Response<EstimateResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-
-
                         empresaDao.saveAll(it.toDriverDTOList())
-
                         listener.onSucess(it)
-
-
-
                     } ?: run {
-                        Log.e("EstimateRide", "Erro: Resposta bem-sucedida, mas corpo vazio.")
                         listener.onFailure(context.getString(R.string.ERROR_ESTIMATE_RIDE))
                     }
                 } else {
-                    val statusCode = response.code()
-                    val errorDescription = response.errorBody()?.string()
-                    Log.e("EstimateRide", "Erro: Status $statusCode, descrição: $errorDescription")
-                    listener.onFailure(context.getString(R.string.ERROR_ESTIMATE_RIDE))
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = parseErrorMessage(errorBody)
+                    listener.onFailure(errorMessage ?: context.getString(R.string.ERROR_ESTIMATE_RIDE))
                 }
             }
 
@@ -76,19 +69,14 @@ class RideRepository(context: Context)  : BaseRepository(context) {
             override fun onResponse(call: Call<ConfirmResponse>, response: Response<ConfirmResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
-                        val statusCode = response.code()
-                        val errorDescription = response.errorBody()?.string()
-                        Log.e("confirmRide", "Erro: Status $statusCode, descrição: $errorDescription")
                         listener.onSucess(it)
                     } ?: run {
                         listener.onFailure(context.getString(R.string.ERROR_CONFIRM_RIDE))
                     }
                 } else {
-
-                    val statusCode = response.code()
-                    val errorDescription = response.errorBody()?.string()
-                    Log.e("confirmRide", "Erro: Status $statusCode, descrição: $errorDescription")
-                    listener.onFailure(context.getString(R.string.ERROR_CONFIRM_RIDE))
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = parseErrorMessage(errorBody)
+                    listener.onFailure(errorMessage ?: context.getString(R.string.ERROR_CONFIRM_RIDE))
                 }
             }
 
@@ -100,23 +88,25 @@ class RideRepository(context: Context)  : BaseRepository(context) {
     }
 
     // Histórico de corridas
-    fun getRideHistory(customerId: String, listener: ApiListener<RideHistoryResponse>) {
+    fun getRideHistory(customerId: String,driverid: String, listener: ApiListener<RideHistoryResponse>) {
         if (!isConnerctionAvailable()) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
         }
 
-        val call = remote.getRideHistory(customerId)
+        val call = remote.getRideHistory(customerId,driverid)
         call.enqueue(object : Callback<RideHistoryResponse> {
             override fun onResponse(call: Call<RideHistoryResponse>, response: Response<RideHistoryResponse>) {
                 if (response.isSuccessful) {
                     response.body()?.let {
                         listener.onSucess(it)
                     } ?: run {
-                        listener.onFailure(context.getString(R.string.ERROR_RIDE_HISTORY))
+                        listener.onFailure(context.getString(R.string.ERROR_NO_RIDES_FOUND))
                     }
                 } else {
-                    listener.onFailure(context.getString(R.string.ERROR_RIDE_HISTORY))
+                    val errorBody = response.errorBody()?.string()
+                    val errorMessage = parseErrorMessage(errorBody)
+                    listener.onFailure(errorMessage ?: context.getString(R.string.ERROR_RIDE_HISTORY))
                 }
             }
 
@@ -129,5 +119,15 @@ class RideRepository(context: Context)  : BaseRepository(context) {
     // Lista Motoristas
     fun getDriversFromLocal(): List<DriverDTO> {
         return empresaDao.list()
+    }
+
+
+    private fun parseErrorMessage(errorBody: String?): String? {
+        return try {
+            val json = JSONObject(errorBody)
+            json.getString("error_description")
+        } catch (e: Exception) {
+            null
+        }
     }
 }

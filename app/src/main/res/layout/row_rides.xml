@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:layout_height="wrap_content" >
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/cardView_Ride"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="5dp"
+        app:cardElevation="5dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/contraint_Ride"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card_image_Ride"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_gravity="center"
+                android:layout_margin="16dp"
+                android:gravity="center"
+                app:cardBackgroundColor="@color/gray_white"
+                app:cardCornerRadius="60dp"
+                app:cardElevation="1dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/image_Rideicone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/ic_car"
+                    android:backgroundTint="@color/dark_blue"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:paddingTop="16dp"
+                android:paddingBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/contraint_Ride"
+                app:layout_constraintStart_toEndOf="@+id/card_image_Ride"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/text_rideName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="Motorista 1"
+                    android:textSize="20sp"/>
+
+                <TextView
+                    android:id="@+id/text_ridedata"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="26/02/1193 11:25"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"/>
+
+                <TextView
+                    android:id="@+id/text_rideOrigin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="Sou Pagodeiro, Cervegeiro e apaixonado por Futebol!"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/text_rideDestination"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="Nota 4,8 - Melhor motorista do Bairro"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/text_rideDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="R$: 59,36"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/text_rideTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="R$: 59,36"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"/>
+                <TextView
+                    android:id="@+id/text_rideValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:text="R$: 59,36"
+                    android:textColor="@color/green"
+                    android:textSize="16sp"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </com.google.android.material.card.MaterialCardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

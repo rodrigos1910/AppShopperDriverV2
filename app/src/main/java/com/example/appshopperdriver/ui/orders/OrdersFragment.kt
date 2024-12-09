@@ -128,8 +128,8 @@ class OrdersFragment : Fragment(), View.OnClickListener {
 
         if (viewModel.validateFilter(filter)){
 
-            //directions = RideFragmentDirections.actionRideFragmentToRideOptionsFragment()
-            //navController.navigate(directions!!)
+            directions = OrdersFragmentDirections.actionOrdersFragmentToOrdersListFragment()
+            navController.navigate(directions!!)
 
 
         }else{

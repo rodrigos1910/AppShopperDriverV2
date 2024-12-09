@@ -8,8 +8,8 @@
     <fragment
         android:id="@+id/rideFragment"
         android:name="com.example.appshopperdriver.ui.ride.RideFragment"
-        android:label="fragment_ride"
-        tools:layout="@layout/fragment_ride" >
+        android:label="Solicitação de Corrida"
+        tools:layout="@string/fragment_ride" >
         <action
             android:id="@+id/action_rideFragment_to_rideOptionsFragment"
             app:destination="@id/rideOptionsFragment" />
@@ -17,7 +17,7 @@
     <fragment
         android:id="@+id/rideOptionsFragment"
         android:name="com.example.appshopperdriver.ui.ride.RideOptionsFragment"
-        android:label="RideOptionsFragment" >
+        android:label="@string/fragment_ride" >
         <action
             android:id="@+id/action_rideOptionsFragment_to_orders"
             app:destination="@id/orders" />

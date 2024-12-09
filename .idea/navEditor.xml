@@ -88,6 +88,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="ordersListFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="289" />
+                            <option name="y" value="26" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                 </map>
               </option>
             </LayoutPositions>

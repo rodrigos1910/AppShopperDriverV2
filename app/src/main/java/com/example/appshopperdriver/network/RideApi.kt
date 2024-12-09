@@ -28,6 +28,6 @@ interface RideApi {
     @GET("ride/{customer_id}")
     fun getRideHistory(
         @Path("customer_id") customerId: String,
-        @Query("driver_id") driverId: Int? = null
+        @Query("driver_id") driverId: String? = null
     ): Call<RideHistoryResponse>
 }
