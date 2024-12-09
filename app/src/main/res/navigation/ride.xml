@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ride"
+    app:startDestination="@id/rideFragment">
+
+    <fragment
+        android:id="@+id/rideFragment"
+        android:name="com.example.appshopperdriver.ui.ride.RideFragment"
+        android:label="fragment_ride"
+        tools:layout="@layout/fragment_ride" >
+        <action
+            android:id="@+id/action_rideFragment_to_rideOptionsFragment"
+            app:destination="@id/rideOptionsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/rideOptionsFragment"
+        android:name="com.example.appshopperdriver.ui.ride.RideOptionsFragment"
+        android:label="RideOptionsFragment" >
+        <action
+            android:id="@+id/action_rideOptionsFragment_to_orders"
+            app:destination="@id/orders" />
+    </fragment>
+    <include app:graph="@navigation/orders" />
+</navigation>
