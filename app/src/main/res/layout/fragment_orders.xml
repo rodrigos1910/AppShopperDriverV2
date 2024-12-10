@@ -32,11 +32,13 @@
             android:layout_height="wrap_content"
             android:hint="@string/orders_textClient"
             app:errorEnabled="true"
+            android:textAllCaps="true"
             app:startIconDrawable="@drawable/ic_people">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/orders_editClient"
                 android:layout_width="match_parent"
+                android:textAllCaps="true"
                 android:layout_height="wrap_content"
                 android:inputType="text" />
         </com.google.android.material.textfield.TextInputLayout>

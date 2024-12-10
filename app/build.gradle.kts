@@ -1,3 +1,4 @@
+
 plugins {
 
 
@@ -41,6 +42,15 @@ android {
     buildFeatures {
         viewBinding = true
     }
+    testOptions {
+        unitTests.isIncludeAndroidResources = true
+    }
+    tasks.withType<Test>().configureEach {
+        jvmArgs(
+            "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+            "--add-opens", "java.base/jdk.internal.reflect=ALL-UNNAMED"
+        )
+    }
 }
 
 dependencies {
@@ -51,9 +61,6 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
 
     // Navigation
     implementation(libs.androidx.navigation.fragment.ktx)
@@ -72,6 +79,8 @@ dependencies {
     //Room DataBase
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.runtime)
+    implementation(libs.core.testing)
+    implementation(libs.core.ktx)
     ksp(libs.androidx.room.compiler){
         exclude(group = "com.intellij", module = "annotations")
     }
@@ -80,5 +89,19 @@ dependencies {
     implementation(libs.retrofit)
     implementation(libs.converter.gson)
     implementation( libs.adapter.rxjava2)
+
+
+    // Testes Unitários
+    testImplementation(libs.junit)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.mockito.inline)
+    testImplementation(libs.robolectric)
+
+    // Testes Instrumentados
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.espresso.core)
+    androidTestImplementation(libs.espresso.contrib)
+
 
 }

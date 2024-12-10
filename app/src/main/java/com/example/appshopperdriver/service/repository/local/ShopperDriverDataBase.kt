@@ -7,7 +7,7 @@ import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.appshopperdriver.data.entities.DriverDTO
 
-@Database(entities = [DriverDTO::class], version = 1)
+@Database(entities = [DriverDTO::class], version = 1, exportSchema = false)
 abstract class ShopperDriverDataBase : RoomDatabase() {
 
     abstract fun DriverDAO(): DriverDAO

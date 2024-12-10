@@ -1,11 +1,11 @@
 [versions]
 agp = "8.7.3"
 cardview = "1.0.0"
-kotlin = "2.0.0"
+kotlin = "2.0.21"
+ksp_version = "2.0.21-1.0.27"
 coreKtx = "1.15.0"
 junit = "4.13.2"
 junitVersion = "1.2.1"
-espressoCore = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
 activity = "1.9.3"
@@ -20,7 +20,20 @@ playServicesLocation = "21.3.0"
 retrofit = "2.9.0"
 roomKtx = "2.6.1"
 roomKtxVersion = "2.6.1"
-ksp_version = "2.0.21-1.0.27"
+kotlinx-coroutines = "1.7.3"
+androidx-junit = "1.2.1"
+espresso-core = "3.6.1"
+espresso-contrib = "3.6.1"
+testng = "6.9.6"
+mockito = "4.11.0"
+core-testing = "2.2.0"
+robolectric = "4.10.3"
+junit-jupiter = "5.9.3"
+junit-vintage-engine = "5.9.3"
+coreKtxVersion = "1.6.1"
+powermock-api = "2.0.9"
+powermock-module = "2.0.9"
+mockk = "1.13.2"
 
 [libraries]
 adapter-rxjava2 = { module = "com.squareup.retrofit2:adapter-rxjava2", version.ref = "retrofit" }
@@ -29,9 +42,6 @@ androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = 
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomKtxVersion" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomKtxVersion" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
-junit = { group = "junit", name = "junit", version.ref = "junit" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
-androidx-espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
@@ -42,6 +52,27 @@ osmdroid-android = { module = "org.osmdroid:osmdroid-android", version.ref = "os
 play-services-location = { module = "com.google.android.gms:play-services-location", version.ref = "playServicesLocation" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "roomKtx" }
+
+# Testes Unitários
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+mockito-inline = { group = "org.mockito", name = "mockito-inline", version.ref = "mockito" }
+coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinx-coroutines" }
+core-testing = { group = "androidx.arch.core", name = "core-testing", version.ref = "core-testing" }
+robolectric = { group = "org.robolectric", name = "robolectric", version.ref = "robolectric" }
+
+
+# Testes Instrumentados
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-junit" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
+espresso-contrib = { group = "androidx.test.espresso", name = "espresso-contrib", version.ref = "espresso-contrib" }
+testng = { group = "org.testng", name = "testng", version.ref = "testng" }
+core-ktx = { group = "androidx.test", name = "core-ktx", version.ref = "coreKtxVersion" }
+powermock-api = { group = "org.powermock", name = "powermock-api-mockito2", version.ref = "powermock-api" }
+powermock = { group = "org.powermock", name = "powermock-module-junit4", version.ref = "powermock-module" }
+mockk = { group = "io.mockk", name = "mockk", version.ref = "mockk" }
+
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

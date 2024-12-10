@@ -41,9 +41,11 @@
         app:itemIconSize="24dp"
         app:itemTextAppearanceActive="@style/ActiveTextAppearance"
         app:itemTextAppearanceInactive="@style/InactiveTextAppearance"
+        app:itemActiveIndicatorStyle="@style/ActiveTextAppearance"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_menu" />
+        app:menu="@menu/bottom_menu"
+        app:itemTextColor="@color/secondaryColor" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

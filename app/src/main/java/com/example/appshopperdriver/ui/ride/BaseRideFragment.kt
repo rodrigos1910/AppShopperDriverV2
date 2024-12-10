@@ -2,7 +2,6 @@ package com.example.appshopperdriver.ui.ride
 
 import android.content.Context
 import android.content.pm.PackageManager
-import android.os.AsyncTask
 import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment

@@ -39,6 +39,7 @@
     <!-- API -->
     <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu. Tente novamente mais tarde.</string>
     <string name="ERROR_LOAD">Erro ao carregar requisição.</string>
+    <string name="ERROR_EMPLYT_DRIVER">"Nenhuma opção de motorista disponível para a rota informada."</string>
     <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
     <string name="ERROR_INTERNET_ACCESS">Sem conexão com a internet. Por favor, verifique sua conexão e tente novamente.</string>
     <string name="SUCESSO_INTERNET_ACCESS">Conexão com Internet OK!</string>

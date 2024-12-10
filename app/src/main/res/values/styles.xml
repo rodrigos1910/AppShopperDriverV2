@@ -18,7 +18,7 @@
     <style name="ActiveTextAppearance" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item> <!-- Tamanho do texto ativo -->
         <item name="android:layout_marginTop">8dp</item> <!-- Espaçamento superior entre ícone e texto -->
-
+       
     </style>
 
     <style name="InactiveTextAppearance" parent="TextAppearance.AppCompat.Caption">

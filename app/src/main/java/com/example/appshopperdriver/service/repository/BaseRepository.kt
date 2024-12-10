@@ -20,6 +20,7 @@ open class BaseRepository(val context: Context) {
         }
 
         /// validador para verificar a conexao e o acesso a rede durante as chamadas dos endpoints
+        @Suppress("DEPRECATION")
         fun isConnerctionAvailable() : Boolean{
             var result = false
             val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager

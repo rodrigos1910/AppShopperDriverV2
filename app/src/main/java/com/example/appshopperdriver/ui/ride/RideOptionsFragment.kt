@@ -132,6 +132,7 @@ class RideOptionsFragment : BaseRideFragment(), View.OnClickListener {
             }
             if (!it.status()) {
                 DialogUtil.showErrorDialog(myContext,it.message())
+                navController.popBackStack()
             }
 
         }

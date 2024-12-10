@@ -12,6 +12,7 @@ import com.example.appshopperdriver.R
 import com.example.appshopperdriver.databinding.FragmentRideBinding
 import com.example.appshopperdriver.model.ride.RideModel
 import com.example.appshopperdriver.service.constants.ShopperContants
+import com.example.appshopperdriver.singleton.SingletonRide
 import com.example.appshopperdriver.util.DialogUtil
 
 
@@ -48,6 +49,10 @@ class RideFragment : BaseRideFragment(), View.OnClickListener{
 
         //Observer
         observer()
+
+
+        // inicia para testes
+        SingletonRide.init()
 
         //carrega dados já existentes
         viewModel.loadRide()

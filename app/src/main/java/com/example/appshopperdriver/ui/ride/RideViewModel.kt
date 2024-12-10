@@ -2,6 +2,7 @@ package com.example.appshopperdriver.ui.ride
 
 import android.app.Application
 import android.content.pm.PackageManager
+import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
@@ -24,11 +25,13 @@ import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import org.osmdroid.util.GeoPoint
 
-class RideViewModel(application: Application) : AndroidViewModel(application) {
+class RideViewModel(application: Application) :
+    AndroidViewModel(application) {
+
+    private val rideRepository: RideRepository = RideRepository(application.applicationContext)
 
     private val  myContext = application.applicationContext
 
-    private val  rideRepository = RideRepository(application.applicationContext)
 
     private val fusedLocationClient: FusedLocationProviderClient =
         LocationServices.getFusedLocationProviderClient(application)
@@ -82,6 +85,7 @@ class RideViewModel(application: Application) : AndroidViewModel(application) {
 
     fun validateRide(ride: RideModel): Boolean{
 
+        SingletonRide.createRide(ride)
 
         val fiels:HashMap<String,String> = HashMap<String,String>()
 
@@ -101,8 +105,8 @@ class RideViewModel(application: Application) : AndroidViewModel(application) {
             _invalidField.value = fiels
             return false
         }else{
+
             _invalidField.value = HashMap()
-            SingletonRide.createRide(ride)
             return true
         }
 
@@ -112,10 +116,21 @@ class RideViewModel(application: Application) : AndroidViewModel(application) {
 
     fun requestDrivers(ride: RideModel) {
 
-        SingletonRide.createRide(ride)
-
         val listener = object : ApiListener<EstimateResponse> {
             override fun onSucess(result: EstimateResponse) {
+
+                // Log do JSON enviado para a API
+                val gson = com.google.gson.Gson()
+                val jsonRequest = gson.toJson(result)
+                Log.d("RideRepository", "JSON recebido para a API (requestDrivers): $jsonRequest")
+
+                // Verificar se o retorno contém dados válidos
+                if (result.options.isEmpty() || result.distance == 0.0 || result.duration == "0") {
+
+                    _loadDrivers.value = ValidationModel(myContext.getString(R.string.ERROR_EMPLYT_DRIVER))
+                    return
+                }
+
 
                 val drivers = mutableListOf<DriverModel>()
 
@@ -147,6 +162,11 @@ class RideViewModel(application: Application) : AndroidViewModel(application) {
         val listener = object : ApiListener<ConfirmResponse> {
             override fun onSucess(result: ConfirmResponse) {
 
+                // Log do JSON enviado para a API
+                val gson = com.google.gson.Gson()
+                val jsonRequest = gson.toJson(result)
+                Log.d("RideRepository", "JSON recebido para a API (confirmRide): $jsonRequest")
+
                 _finishRide.value = true
                 _confirmRide.value = ValidationModel()
             }
@@ -164,9 +184,6 @@ class RideViewModel(application: Application) : AndroidViewModel(application) {
 
 
     fun loadRide(){
-        // inicia para testes
-
-        SingletonRide.init()
 
         var ride = SingletonRide.getRideInstance()
         _loadRide.value = ride

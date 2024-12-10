@@ -20,7 +20,9 @@
         android:label="@string/fragment_ride" >
         <action
             android:id="@+id/action_rideOptionsFragment_to_orders"
-            app:destination="@id/orders" />
+            app:destination="@id/orders"
+            app:popUpTo="@id/ride"
+            app:popUpToInclusive="false"/>
     </fragment>
     <include app:graph="@navigation/orders" />
 </navigation>

@@ -33,6 +33,12 @@ class RideRepository(context: Context)  : BaseRepository(context) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
         }
+
+        // Log do JSON enviado para a API
+        val gson = com.google.gson.Gson()
+        val jsonRequest = gson.toJson(request)
+        Log.d("RideRepository", "JSON enviado para a API (EstimateRide): $jsonRequest")
+
         val call = remote.estimateRide(request)
         call.enqueue(object : Callback<EstimateResponse> {
             override fun onResponse(call: Call<EstimateResponse>, response: Response<EstimateResponse>) {
@@ -64,6 +70,11 @@ class RideRepository(context: Context)  : BaseRepository(context) {
             return
         }
 
+        // Log do JSON enviado para a API
+        val gson = com.google.gson.Gson()
+        val jsonRequest = gson.toJson(request)
+        Log.d("RideRepository", "JSON enviado para a API (confirmRide): $jsonRequest")
+
         val call = remote.confirmRide(request)
         call.enqueue(object : Callback<ConfirmResponse> {
             override fun onResponse(call: Call<ConfirmResponse>, response: Response<ConfirmResponse>) {
@@ -93,6 +104,9 @@ class RideRepository(context: Context)  : BaseRepository(context) {
             listener.onFailure(context.getString(R.string.ERROR_INTERNET_CONNECTION))
             return
         }
+
+        // Log do JSON enviado para a API
+        Log.d("RideRepository", "Dados enviado para a API (getRideHistory) customerId: $customerId driverid: $driverid ")
 
         val call = remote.getRideHistory(customerId,driverid)
         call.enqueue(object : Callback<RideHistoryResponse> {
@@ -124,7 +138,7 @@ class RideRepository(context: Context)  : BaseRepository(context) {
 
     private fun parseErrorMessage(errorBody: String?): String? {
         return try {
-            val json = JSONObject(errorBody)
+            val json = JSONObject(errorBody?:"")
             json.getString("error_description")
         } catch (e: Exception) {
             null

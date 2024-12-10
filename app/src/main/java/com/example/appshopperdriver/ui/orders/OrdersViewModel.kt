@@ -2,6 +2,7 @@ package com.example.appshopperdriver.ui.orders
 
 import android.annotation.SuppressLint
 import android.app.Application
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,13 +24,10 @@ import com.example.appshopperdriver.singleton.SingletonFilterRide
 import com.example.appshopperdriver.singleton.SingletonRide
 import com.example.appshopperdriver.util.ApiListener
 
-class OrdersViewModel(application: Application) : AndroidViewModel(application) {
+class OrdersViewModel(application: Application  ) : AndroidViewModel(application) {
 
+    private val rideRepository: RideRepository = RideRepository(application.applicationContext)
     private val  myContext = application.applicationContext
-
-
-    private val  rideRepository = RideRepository(application.applicationContext)
-
 
     private val _invalidField = MutableLiveData<HashMap<String,String>>()
     val invalidField: LiveData<HashMap<String, String>> = _invalidField
@@ -45,6 +43,11 @@ class OrdersViewModel(application: Application) : AndroidViewModel(application) 
     private val _loadRides= MutableLiveData<ValidationModel>()
     val loadRides: LiveData<ValidationModel> = _loadRides
 
+
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    fun setDriversForTest(driversList: List<DriverDTO>) {
+        _drivers.value = driversList
+    }
 
     fun validateFilter(filter: FilterRideModel): Boolean{
 
