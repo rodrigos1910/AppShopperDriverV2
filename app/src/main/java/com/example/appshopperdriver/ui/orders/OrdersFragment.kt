@@ -15,9 +15,7 @@ import com.example.appshopperdriver.R
 import com.example.appshopperdriver.data.entities.DriverDTO
 import com.example.appshopperdriver.databinding.FragmentOrdersBinding
 import com.example.appshopperdriver.model.orders.FilterRideModel
-import com.example.appshopperdriver.model.ride.RideModel
 import com.example.appshopperdriver.service.constants.ShopperContants
-import com.example.appshopperdriver.ui.ride.RideFragmentDirections
 import com.example.appshopperdriver.util.DialogUtil
 
 

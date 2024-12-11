@@ -10,9 +10,7 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.appshopperdriver.R
-import com.example.appshopperdriver.databinding.FragmentOrdersBinding
 import com.example.appshopperdriver.databinding.FragmentOrdersListBinding
-import com.example.appshopperdriver.ui.ride.RideDriverAdapter
 import com.example.appshopperdriver.util.DialogUtil
 
 
