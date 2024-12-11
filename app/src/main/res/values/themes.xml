@@ -3,7 +3,22 @@
     <style name="Base.Theme.AppShopperDriver" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/secondaryColor</item>
+        <item name="colorPrimaryVariant">@color/secondaryColor</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/secondaryColor</item>
+        <item name="colorOnSecondary">@color/secondaryColor</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/secondaryColor</item>
+        <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.AppShopperDriver" parent="Base.Theme.AppShopperDriver" />
+    <style name="Theme.AppShopperDriver" parent="Base.Theme.AppShopperDriver" >
+        <item name="android:statusBarColor" >?attr/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/secondaryColor</item>
+    </style>
 </resources>

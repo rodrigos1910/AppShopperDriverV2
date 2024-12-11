@@ -102,7 +102,7 @@ class RideOptionsFragment : BaseRideFragment(), View.OnClickListener {
 
 
     fun handleConfirmRide(){
-        dialogLoading = DialogUtil.showLoadingDialog(myContext,"Confirmando Corrida...")
+        dialogLoading = DialogUtil.showLoadingDialog(myContext,myContext.getString(R.string.dialog_loading_ride))
 
         viewModel.confirmRide()
     }
@@ -112,7 +112,7 @@ class RideOptionsFragment : BaseRideFragment(), View.OnClickListener {
 
         viewModel.loadRide.observe(viewLifecycleOwner){
             if (it != null) {
-                dialogLoading = DialogUtil.showLoadingDialog(myContext,"Obtendo Motoristas Disponiveis...")
+                dialogLoading = DialogUtil.showLoadingDialog(myContext,myContext.getString(R.string.dialog_loading_drivers))
 
                 viewModel.requestDrivers(it)
             }

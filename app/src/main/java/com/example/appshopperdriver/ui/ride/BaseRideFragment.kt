@@ -1,10 +1,14 @@
 package com.example.appshopperdriver.ui.ride
 
+import android.Manifest
 import android.content.Context
 import android.content.pm.PackageManager
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import com.example.appshopperdriver.R
+import com.example.appshopperdriver.util.DialogUtil
 import com.example.appshopperdriver.util.RouteUtil.decodePolyline
 import org.osmdroid.util.GeoPoint
 import org.osmdroid.views.MapView
@@ -16,9 +20,14 @@ open class BaseRideFragment:  Fragment() {
 
     protected lateinit var myContext: Context
 
-    companion object {
-        private const val LOCATION_PERMISSION_REQUEST_CODE = 1
+    private val requestPermissionLauncher = registerForActivityResult(
+        ActivityResultContracts.RequestPermission()
+    ) { isGranted: Boolean ->
+        if (isGranted) {
+            onPermissionGranted()
+        }
     }
+
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
@@ -31,36 +40,42 @@ open class BaseRideFragment:  Fragment() {
         }
     }
 
-    // Método genérico para verificar permissões
     protected fun checkLocationPermission(actionOnGranted: () -> Unit) {
-        if (ContextCompat.checkSelfPermission(
+        when {
+            ContextCompat.checkSelfPermission(
                 requireContext(),
-                android.Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            actionOnGranted()
-        } else {
-            requestPermissions(
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
-                LOCATION_PERMISSION_REQUEST_CODE
-            )
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED -> {
+                // Permissão já concedida, execute a ação
+                actionOnGranted()
+            }
+
+            shouldShowRequestPermissionRationale(Manifest.permission.ACCESS_FINE_LOCATION) -> {
+                // Mostrar explicação para o usuário
+                mostrarExplicacaoPermissao {
+                    // Após a explicação, solicitar a permissão novamente
+                    requestLocationPermission()
+                }
+            }
+
+            else -> {
+                // Solicitar a permissão diretamente
+                requestLocationPermission()
+            }
         }
     }
 
-    // Método para lidar com o resultado de permissões
-    override fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: Array<out String>,
-        grantResults: IntArray
-    ) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
-        if (requestCode == LOCATION_PERMISSION_REQUEST_CODE) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                onPermissionGranted()
-            } else {
-                Toast.makeText(myContext, "Permissão negada", Toast.LENGTH_SHORT).show()
-            }
-        }
+    private fun mostrarExplicacaoPermissao(onContinuar: () -> Unit) {
+
+        DialogUtil.showInformationDialog(myContext,myContext.getString(R.string.dialog_location_permition_title),
+            myContext.getString(R.string.dialog_location_permition_description),"OK",
+            {
+                onContinuar()
+            })
+    }
+
+    private fun requestLocationPermission() {
+        requestPermissionLauncher.launch(Manifest.permission.ACCESS_FINE_LOCATION)
     }
 
     open fun onPermissionGranted() {
@@ -75,7 +90,7 @@ open class BaseRideFragment:  Fragment() {
 
         val marker = Marker(mapView)
         marker.position = geoPoint
-        marker.title = "Localização Atual"
+        marker.title =  myContext.getString(R.string.maps_title)
         marker.setAnchor(Marker.ANCHOR_CENTER, Marker.ANCHOR_BOTTOM)
         mapView.overlays.clear()
         mapView.overlays.add(marker)
@@ -90,7 +105,7 @@ open class BaseRideFragment:  Fragment() {
             // Cria a Polyline e define os pontos
             val polyline = Polyline().apply {
                 setPoints(routePoints)
-                title = "Rota"
+                title = myContext.getString(R.string.maps_title_route)
             }
 
             // Adiciona a Polyline ao mapa

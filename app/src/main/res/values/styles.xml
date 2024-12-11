@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+
+
     <style name="ToolbarTheme" parent="@style/ThemeOverlay.MaterialComponents.ActionBar">
         <!-- custumizacao do back button da toolbar -->
         <item name="colorControlNormal">@color/secondaryColor</item>
@@ -18,7 +20,7 @@
     <style name="ActiveTextAppearance" parent="TextAppearance.AppCompat.Caption">
         <item name="android:textSize">12sp</item> <!-- Tamanho do texto ativo -->
         <item name="android:layout_marginTop">8dp</item> <!-- Espaçamento superior entre ícone e texto -->
-       
+
     </style>
 
     <style name="InactiveTextAppearance" parent="TextAppearance.AppCompat.Caption">

@@ -1,9 +1,11 @@
 package com.example.appshopperdriver.ui.home
 
 import android.content.pm.ActivityInfo
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.NavController
@@ -38,6 +40,10 @@ class MainActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
+
+        // Alterar a cor da barra de status
+        window.statusBarColor = ContextCompat.getColor(this, R.color.primaryColor)
+        window.navigationBarColor = ContextCompat.getColor(this, R.color.secondaryColor)
 
         navController = navHostFragment.navController
 

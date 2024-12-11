@@ -126,7 +126,7 @@ class RideFragment : BaseRideFragment(), View.OnClickListener{
 
 
         }else{
-            DialogUtil.showErrorDialog(myContext,"Houve Falha em alguns campos!")
+            DialogUtil.showErrorDialog(myContext,myContext.getString(R.string.dialog_textfield_error))
         }
     }
 

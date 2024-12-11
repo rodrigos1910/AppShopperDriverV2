@@ -47,7 +47,7 @@ class OrdersListFragment : Fragment() {
         observer()
 
         //carrega dados
-        dialogLoading = DialogUtil.showLoadingDialog(myContext,"Obtendo Históricos Disponiveis...")
+        dialogLoading = DialogUtil.showLoadingDialog(myContext,myContext.getString(R.string.dialog_loading_history))
         viewModel.requestRides()
 
         return  binding.root

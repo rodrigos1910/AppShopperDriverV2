@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AppShopperDriver</string>
+    <string name="app_name">Shopper Driver</string>
 
 
     <!-- Strings used for fragments for navigation -->
@@ -58,6 +58,16 @@
     <!-- DIALOG -->
     <string name="dialog_text_sucess">Operação realizada com sucesso!</string>
     <string name="dialog_text_error">Falha ao enviar operação!</string>
+    <string name="dialog_loading_ride">Confirmando Corrida...</string>
+    <string name="dialog_loading_drivers">Obtendo Motoristas Disponiveis...</string>
+    <string name="dialog_loading_history">Obtendo Históricos Disponiveis...</string>
+    <string name="dialog_textfield_error">Houve Falha em alguns campos!</string>
+    <string name="dialog_location_permition_title">Permissão de Localização Necessária</string>
+    <string name="dialog_location_permition_description">Este aplicativo necessita da permissão de localização para funcionar corretamente.</string>
+
+
+    <string name="maps_title">Localização Atual</string>
+    <string name="maps_title_route">Rota</string>
 
 
     <string name="lorem_ipsum">
